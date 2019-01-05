@@ -1,0 +1,35 @@
+<p>
+    <td>Введенная последовательность:
+        <%=@inp %>
+    </td>
+</p>
+<br><br>
+<% if @posled.length!=0 %>
+<p>
+    <td>Самая длинная последовательность:
+        <%=@posled[0] %>
+    </td>
+</p>
+<br><br>
+<table border="1">
+    <thead>
+        <th scope="col">№</th>
+        <th scope="col">Последовательность</th>
+    </thead>
+    <tbody>
+        <% @posled.each_with_index do |elem, index| %>
+        <tr>
+            <th scope="row">
+                <%= index+1 %>
+            </th>
+            <td>
+                <%= elem %>
+            </td>
+        </tr>
+        <% end %>
+    </tbody>
+</table>
+<% else %>
+<p>Последовательностей не найдено</p>
+<% end %>
+<%= link_to 'Повторный ввод', root_path %>
